@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/util     
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<bean id="auditoriumService"
+		class="com.epamlearning.spring.sevice.impl.AuditoriumServiceImpl"
+		init-method="init">
+	</bean>
+
+	<!-- TODO refactor for auto retrieving -->
+	<bean id="auditoriumlist" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="com.epamlearning.spring.domain.Auditorium">
+				<ref bean="auditoriumFirst" />
+				<ref bean="auditoriumSecond" />
+				<ref bean="auditoriumThird" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="auditoriumFirst" class="com.epamlearning.spring.domain.Auditorium">
+		<property name="name" value="${auditorium1.name}" />
+		<property name="totalSeats" value="${auditorium1.seats}" />
+		<property name="vipSeats" value="#{'${auditorium1.vips}'.split(',')}" />
+	</bean>
+	<bean id="auditoriumSecond" class="com.epamlearning.spring.domain.Auditorium">
+		<property name="name" value="${auditorium2.name}" />
+		<property name="totalSeats" value="${auditorium2.seats}" />
+		<property name="vipSeats" value="#{'${auditorium2.vips}'.split(',')}" />
+	</bean>
+	<bean id="auditoriumThird" class="com.epamlearning.spring.domain.Auditorium">
+		<property name="name" value="${auditorium3.name}" />
+		<property name="totalSeats" value="${auditorium3.seats}" />
+		<property name="vipSeats" value="#{'${auditorium3.vips}'.split(',')}" />
+	</bean>
+</beans>

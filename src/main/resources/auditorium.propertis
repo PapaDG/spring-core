@@ -1,0 +1,11 @@
+auditorium1.name=First_Test_Palace
+auditorium1.seats=100
+auditorium1.vips=11,12,13,14,15,16,17,18,19,20
+
+auditorium2.name=Second_Test_Palace
+auditorium2.seats=200
+auditorium2.vips=21,22,23,24,25,26,27,28,29,30
+
+auditorium3.name=Thirs_Test_Palace
+auditorium3.seats=300
+auditorium3.vips=31,32,33,34,35,36,37,38,39,40
